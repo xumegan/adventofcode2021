@@ -27,14 +27,15 @@ function func2(day7) {
   let smallone = 0
   for (let i = 1; i < arr.length + 1; i++) {
     let temp = 0
+    smallone = i
     for (let j = 0; j < arr.length; j++) {
       let tem = 0
       tem = Math.abs(arr[j] - i)
       temp += [...Array(tem + 1).keys()].reduce((a, b) => a + b, 0)
     }
     result.push(temp) //can improve speed by compare 2 and keep small one
-
+    smallone = i > 3 ? Math.min(...result) : 'not reach'
   }
-  console.log(Math.min(...result))//90040997
+  console.log(smallone)//90040997
 }
 func2(day7)
